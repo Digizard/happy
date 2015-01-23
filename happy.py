@@ -102,46 +102,46 @@ def loop(function):
     elif function_name == 'quit' or function_name == 'exit':
         global quit
         quit = function
-    elif function_name == 'active_event' or function_name == 'activeevent':
+    elif function_name == 'activeevent':
         global active_event
         active_event = function
-    elif function_name == 'key_down' or function_name == 'keydown':
+    elif function_name == 'keydown':
         global key_down
         key_down = function
-    elif function_name == 'key_up' or function_name == 'keyup':
+    elif function_name == 'keyup':
         global key_up
         key_up = function
-    elif function_name == 'mouse_motion' or function_name == 'mousemotion':
+    elif function_name == 'mousemotion':
         global mouse_motion
         mouse_motion = function
-    elif function_name == 'mouse_button_up' or function_name == 'mousebuttonup':
+    elif function_name == 'mousebuttonup':
         global mouse_button_up
         mouse_button_up = function
-    elif function_name == 'mouse_button_down' or function_name == 'mousebuttondown':
+    elif function_name == 'mousebuttondown':
         global mouse_button_down
         mouse_button_down = function
-    elif function_name == 'joy_axis_motion' or function_name == 'joyaxismotion':
+    elif function_name == 'joyaxismotion':
         global joy_axis_motion
         joy_axis_motion = function
-    elif function_name == 'joy_ball_motion' or function_name == 'joyballmotion':
+    elif function_name == 'joyballmotion':
         global joy_ball_motion
         joy_ball_motion = function
-    elif function_name == 'joy_hat_motion' or function_name == 'joyhatmotion':
+    elif function_name == 'joyhatmotion':
         global joy_hat_motion
         joy_hat_motion = function
-    elif function_name == 'joy_button_up' or function_name == 'joybuttonup':
+    elif function_name == 'joybuttonup':
         global joy_button_up
         joy_button_up = function
-    elif function_name == 'joy_button_down' or function_name == 'joybuttondown':
+    elif function_name == 'joybuttondown':
         global joy_button_down
         joy_button_down = function
-    elif function_name == 'video_resize' or function_name == 'videoresize':
+    elif function_name == 'videoresize':
         global video_resize
         video_resize = function
-    elif function_name == 'video_expose' or function_name == 'videoexpose':
+    elif function_name == 'videoexpose':
         global video_expose
         video_expose = function
-    elif function_name == 'user_event' or function_name == 'userevent':
+    elif function_name == 'userevent':
         global user_event
         user_event = function
 
