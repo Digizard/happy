@@ -1,16 +1,37 @@
 import sys, pygame
 
-pygame.init()
-    
-size = width, height = 640, 480
-screen = pygame.display.set_mode(size)
+screen = None
+
+clock = pygame.time.Clock()
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
+window = {
+    'title': 'Untitled',
+    'icon': None,
+    'width': 800,
+    'height': 600,
+    'borderless': False,
+    'resizeable': False,
+    'minwidth': 1,
+    'minheight': 1,
+    'fullscreen': False
+}
+
+modules = {
+    'cdrom': False,
+    'font': True,
+    'freetype': False,
+    'joystick': False,
+    'midi': False,
+    'mixer': True,
+    'scrap': False
+}
+
 def start():
     # Setup happy default values
-    conf()
+    setup()
     # Declare and initialize game values
     load()
 
@@ -28,8 +49,53 @@ def start():
         
         pygame.display.update()
 
-def conf():
-    return
+def setup():
+    global window, modules
+    window, modules = conf(window, modules)
+    pygame.display.init()
+
+    setupWindow()
+    setupModules()
+
+def setupWindow():
+    global screen
+    screenSize = (window['width'], window['height'])
+    screenFlag = 0
+    
+    if window['fullscreen']:
+        screenFlag = pygame.FULLSCREEN
+    elif window['resizeable']:
+        screenFlag = pygame.RESIZABLE
+    elif window['borderless']:
+        screenFlag = pygame.NOFRAME
+    		
+    pygame.display.set_caption(window['title'])
+    
+    if window['icon']:
+        icon = pygame.image.load(window['icon'])
+        pygame.display.set_icon(icon)
+
+    screen = pygame.display.set_mode(screenSize, screenFlag)
+  
+def setupModules():
+    if modules['cdrom']:
+        pygame.cdrom.init()
+    if modules['font']:
+        pygame.font.init()
+    if modules['freetype']:
+        pygame.freetype.init()
+    if modules['joystick']:
+        pygame.joystick.init()
+    if modules['midi']:
+        pygame.midi.init()
+    if modules['mixer']:
+        pygame.mixer.init()
+    if modules['scrap']:
+        pygame.scrap.init()
+	
+
+def conf(window, modules):
+    return window, modules
     
 def load():
     return
@@ -43,7 +109,7 @@ def events():
         elif event.type == pygame.KEYDOWN:
             key_down(event.key, event.unicode, event.mod)
         elif event.type == pygame.KEYUP:
-            key_up(event.key, event.uni, event.mod)
+            key_up(event.key, event.unicode, event.mod)
         elif event.type == pygame.MOUSEMOTION:
             mouse_motion(event.pos, event.rel, event.buttons)
         elif event.type == pygame.MOUSEBUTTONUP:
