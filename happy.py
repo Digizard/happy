@@ -60,7 +60,7 @@ def start():
 # function to take effect and applies them.
 #
 def setup():
-    global window, modules, draw_rects
+    global window, modules
     window, modules = conf(window, modules)
     pygame.display.init()
 
