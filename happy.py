@@ -27,6 +27,8 @@ color = {
     'NAVY': (0, 0, 128)
 }
 
+BLACK = (0,0,0)
+
 graphics = {
 
 }
@@ -109,8 +111,8 @@ def setup_window():
         icon = pygame.image.load(window['icon'])
         pygame.display.set_icon(icon)
 
-    screen = pygame.display.set_mode(screen_size),
-    screen_rect = pygame.Rect(0, 0, screen['width'], screen['height'])
+    screen = pygame.display.set_mode(screen_size)
+    screen_rect = pygame.Rect(0, 0, window['width'], window['height'])
   
 def setup_modules():
     if modules['cdrom']:
